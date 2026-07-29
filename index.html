@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="Подтверждённые кейсы по AI, автоматизации, интеграциям, web и SEO."
+    />
+    <title>Банк кейсов — автоматизация, AI и web-разработка</title>
+    <style>
+:root {
+  --paper: #f4f0e8;
+  --paper-strong: #ebe4d8;
+  --card: #fffdf8;
+  --ink: #182a2b;
+  --muted: #65706d;
+  --line: #d8d0c3;
+  --accent: #df5f45;
+  --accent-dark: #9f3b2d;
+  --teal: #155f5d;
+  --teal-soft: #dce9e5;
+  --cream: #f5d69a;
+  --shadow: 0 18px 50px rgba(53, 49, 41, 0.08);
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(245, 214, 154, 0.35), transparent 28rem),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.shell {
+  width: min(1160px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -5rem;
+  z-index: 20;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: white;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(24, 42, 43, 0.14);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: 0.82rem;
+}
+
+.header-note,
+.text-link {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.text-link {
+  text-underline-offset: 0.22rem;
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.catalog-hero {
+  padding-block: clamp(4rem, 11vw, 8.5rem) clamp(3.5rem, 8vw, 6rem);
+}
+
+.catalog-hero h1,
+.case-hero h1 {
+  max-width: 980px;
+  margin: 0.7rem 0 1.2rem;
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.catalog-hero h1 {
+  font-size: clamp(3rem, 7.7vw, 6.7rem);
+}
+
+.catalog-lead,
+.case-lead {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.catalog-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.catalog-stats span {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.72);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.catalog-stats strong {
+  color: var(--ink);
+}
+
+.catalog-shell {
+  padding-bottom: 6rem;
+}
+
+.catalog-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.catalog-heading h2,
+.case-body h2 {
+  margin: 0.3rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.result-count {
+  margin: 0;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.catalog-controls {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  gap: 0.8rem;
+  margin-block: 1.5rem 2rem;
+  padding-block: 0.9rem;
+  background: rgba(244, 240, 232, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.search-field input {
+  width: 100%;
+  min-height: 3.2rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--card);
+  color: var(--ink);
+  outline: none;
+}
+
+.search-field input:focus-visible {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(21, 95, 93, 0.15);
+}
+
+.filter-row {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scrollbar-width: thin;
+}
+
+.filter-button {
+  flex: 0 0 auto;
+  padding: 0.52rem 0.78rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.filter-button[aria-pressed="true"] {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: white;
+}
+
+.filter-button:focus-visible,
+.case-card a:focus-visible,
+.button-link:focus-visible,
+.text-link:focus-visible,
+.brand:focus-visible {
+  outline: 3px solid rgba(223, 95, 69, 0.45);
+  outline-offset: 3px;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-card {
+  grid-column: span 6;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+  border: 1px solid var(--line);
+  border-radius: 1.15rem;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.case-card.featured {
+  grid-column: span 12;
+  min-height: 320px;
+  justify-content: space-between;
+  background:
+    linear-gradient(135deg, rgba(220, 233, 229, 0.8), rgba(255, 253, 248, 0.95) 55%),
+    var(--card);
+}
+
+.card-category {
+  margin: 0;
+  color: var(--accent-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.case-card h3 {
+  margin: 0.45rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.case-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.case-card a {
+  width: fit-content;
+  margin-top: auto;
+  color: var(--teal);
+  font-weight: 750;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25rem;
+}
+
+.mini-tags,
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mini-tags li,
+.tag-list li {
+  max-width: 100%;
+  padding: 0.35rem 0.58rem;
+  border-radius: 999px;
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+.empty-state,
+.noscript-note {
+  padding: 3rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.case-hero {
+  padding-block: clamp(4rem, 10vw, 8rem);
+}
+
+.case-hero h1 {
+  font-size: clamp(3rem, 8vw, 7.3rem);
+}
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 3rem 0 0;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.case-meta div {
+  min-width: 0;
+  padding: 1.15rem;
+  background: var(--card);
+}
+
+.case-meta dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.case-meta dd {
+  margin: 0.35rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.case-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+  padding-bottom: 6rem;
+}
+
+.case-body > * {
+  min-width: 0;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+}
+
+.story-panel {
+  grid-column: span 7;
+  background: var(--card);
+}
+
+.facts-panel {
+  grid-column: span 5;
+  background: var(--teal);
+  color: white;
+}
+
+.facts-panel .section-kicker {
+  color: var(--cream);
+}
+
+.facts-panel h2 {
+  color: white;
+}
+
+.story-copy {
+  margin: 1.4rem 0 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.fact-list {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fact-list li {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.fact-list li::before {
+  content: "✓";
+  margin-right: 0.55rem;
+  color: var(--cream);
+  font-weight: 900;
+}
+
+.stack-panel {
+  grid-column: span 5;
+  background: var(--paper-strong);
+}
+
+.stack-panel .tag-list {
+  margin-top: 1.5rem;
+}
+
+.cta-panel {
+  grid-column: span 7;
+  background: var(--cream);
+}
+
+.cta-panel p:not(.section-kicker) {
+  max-width: 62ch;
+  color: #56462b;
+}
+
+.button-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: white;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .header-note {
+    display: none;
+  }
+
+  .catalog-heading,
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .case-card,
+  .case-card.featured,
+  .story-panel,
+  .facts-panel,
+  .stack-panel,
+  .cta-panel {
+    grid-column: 1 / -1;
+  }
+
+  .case-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-controls {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+</style>
+  </head>
+  <body>
+    <a class="skip-link" href="#catalog">К каталогу</a>
+    <header class="site-header shell">
+      <a class="brand" href="index.html" aria-label="Банк кейсов — на главную">
+        <span class="brand-mark" aria-hidden="true">КБ</span>
+        <span>Банк кейсов</span>
+      </a>
+      <span class="header-note">Подтверждённые работы</span>
+    </header>
+
+    <main>
+      <section class="catalog-hero shell">
+        <p class="eyebrow">Практика вместо общих обещаний</p>
+        <h1>Подбираем опыт под задачу, а не показываем портфолио веером</h1>
+        <p class="catalog-lead">
+          Здесь собраны обезличенные работы по AI-агентам, автоматизации,
+          интеграциям, платформам, сайтам и росту. Каждый кейс опирается на код,
+          проверку результата или подтверждённую приёмку.
+        </p>
+        <div class="catalog-stats" aria-label="Статистика каталога">
+          <span><strong>8</strong> кейсов в этой подборке</span>
+          <span><strong>6</strong> направлений</span>
+          <span><strong>1–3</strong> примера на диалог</span>
+        </div>
+      </section>
+
+      <section class="catalog-shell shell" id="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-heading">
+          <div>
+            <p class="section-kicker">Каталог</p>
+            <h2 id="catalog-title">Найдите похожую механику</h2>
+          </div>
+          <p id="resultCount" class="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="catalog-controls">
+          <label class="search-field">
+            <span class="sr-only">Поиск по кейсам</span>
+            <input
+              id="caseSearch"
+              type="search"
+              placeholder="Например: озон, звонки, WordPress, бронирование"
+              autocomplete="off"
+            />
+          </label>
+          <div id="categoryFilters" class="filter-row" aria-label="Фильтр по направлению"></div>
+        </div>
+
+        <div id="caseGrid" class="case-grid"></div>
+        <p id="emptyState" class="empty-state" hidden>
+          Прямого совпадения нет. Попробуйте название платформы или механику задачи.
+        </p>
+        <noscript>
+          <p class="noscript-note">
+            Для поиска по каталогу нужен JavaScript. Прямые страницы кейсов
+            работают без него.
+          </p>
+        </noscript>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <p>Кейсы обезличены. Детальные пруфы предоставляются по прямому запросу.</p>
+      <p>Обновлено: 29 июля 2026 г.</p>
+    </footer>
+
+    <script>window.__CASE_DATA__ = {"schema_version":"1.0","build_wave":1,"categories":{"ai":{"label":"AI-агенты, боты и голос","short_label":"AI и боты","description":"Ассистенты, голосовые роботы, хелпдеск и автоматизация коммуникаций."},"integrations":{"label":"CRM, ERP, маркетплейсы и платежи","short_label":"Интеграции","description":"Связки между бизнес-системами, оплатой, аналитикой и внешними API."},"data":{"label":"Данные, парсинг и отчётность","short_label":"Данные","description":"Сбор, обогащение, проверка и превращение данных в рабочие отчёты."},"web":{"label":"Сайты, лендинги и e-commerce","short_label":"Web","description":"Сайты и посадочные страницы от быстрого запуска до сложной логики."},"platform":{"label":"SaaS, платформы и инфраструктура","short_label":"Платформы","description":"Продуктовые MVP, маркетплейсы, личные кабинеты и инфраструктурные решения."},"seo":{"label":"SEO, контент и аналитика","short_label":"Рост и SEO","description":"Техническая оптимизация, контентные процессы, измерение и эксперименты."}},"cases":[{"id":"1c-to-marketplaces","title":"Выгрузка из 1С в Ozon, прайс-агрегатор и интернет-магазин","category":"integrations","category_label":"CRM, ERP, маркетплейсы и платежи","subcategory":"Маркетплейсы и товарные выгрузки","client_public":"поставщик автозапчастей и техобслуживания","pitch_short":"Прослойка тянет остатки и цены из 1С по OData и раскидывает их в Ozon, прайс-агрегатор и интернет-магазин каждые полчаса.","pitch_full":"Односторонняя выгрузка по расписанию: 1С источник, каналы только принимают. Канал Ozon Seller в проде, автоматом обновляется 168 карточек, свободный остаток считается по трём складам, цена берётся как розница на коэффициент, схема FBS. Плюс FTP-прайс на отраслевой агрегатор на 316 позиций и CSV-выгрузка в магазин на 1С-Битрикс с сопоставлением 463 карточек по внешнему коду. Есть ручки здоровья и метрик и алерты о сбоях в Telegram, документированный набор тестов зелёный, 49 из 49.","result_facts":["Ozon: 168 карточек в проде, остаток по 3 складам, FBS","прайс-фид 316 позиций","магазин: 463 карточки по внешнему коду","49/49 тестов, алерты в Telegram"],"stack":["Python","1С OData","Ozon Seller API","FTP","1С-Битрикс","Docker"],"keywords":["1с","озон","маркетплейс","остатки","цены","выгрузка","интеграция 1с","odata","прайс","синхронизация","fbs","склады","wildberries аналогично","ozon","1c","битрикс","bitrix","вайлдберриз"],"evidence_wording":"Работа завершена, результат принят клиентом.","featured_public":true,"page_path":"case-1c-to-marketplaces.html","search_text":"Выгрузка из 1С в Ozon, прайс-агрегатор и интернет-магазин CRM, ERP, маркетплейсы и платежи Маркетплейсы и товарные выгрузки поставщик автозапчастей и техобслуживания Прослойка тянет остатки и цены из 1С по OData и раскидывает их в Ozon, прайс-агрегатор и интернет-магазин каждые полчаса. Односторонняя выгрузка по расписанию: 1С источник, каналы только принимают. Канал Ozon Seller в проде, автоматом обновляется 168 карточек, свободный остаток считается по трём складам, цена берётся как розница на коэффициент, схема FBS. Плюс FTP-прайс на отраслевой агрегатор на 316 позиций и CSV-выгрузка в магазин на 1С-Битрикс с сопоставлением 463 карточек по внешнему коду. Есть ручки здоровья и метрик и алерты о сбоях в Telegram, документированный набор тестов зелёный, 49 из 49. Python 1С OData Ozon Seller API FTP 1С-Битрикс Docker 1с озон маркетплейс остатки цены выгрузка интеграция 1с odata прайс синхронизация fbs склады wildberries аналогично ozon 1c битрикс bitrix вайлдберриз 1С Ozon остатки цены API маркетплейсы"},{"id":"voice-inbound-b24","title":"Голосовой AI-робот на входящие звонки с заведением лида в CRM","category":"ai","category_label":"AI-агенты, боты и голос","subcategory":"Голосовые AI-агенты","client_public":"агропромышленная компания","pitch_short":"Робот принимает входящий звонок, разговаривает голосом по-русски своими словами и сам создаёт лид в CRM.","pitch_full":"Не меню с кнопками, а живой диалог: робот задаёт свои уточняющие вопросы, слышит перебивание и уступает слово. Полный путь показали живьём: реальный звонок по SIP, распознавание речи, диалог на модели, затем сделка и задача по звонку в Bitrix24. Холодный старт довели с примерно 70 секунд до 0,3 секунды на горячем инстансе.","result_facts":["живой сквозной прогон: звонок → диалог → сделка в B24","задержка холодного старта ~70с → ~0,3с горячий","перебивание работает"],"stack":["LiveKit","Claude","SIP","Bitrix24 API","Python"],"keywords":["голосовой робот","входящие звонки","ivr","телефония","sip","голосовой ассистент","робот отвечает на звонки","автоответчик","call-центр","bitrix24","b24","голос","звонок","asterisk"],"evidence_wording":"Показали живьём сквозной сценарий, вывод на боевую линию упирался в маршрутизацию у оператора связи.","featured_public":true,"page_path":"case-voice-inbound-b24.html","search_text":"Голосовой AI-робот на входящие звонки с заведением лида в CRM AI-агенты, боты и голос Голосовые AI-агенты агропромышленная компания Робот принимает входящий звонок, разговаривает голосом по-русски своими словами и сам создаёт лид в CRM. Не меню с кнопками, а живой диалог: робот задаёт свои уточняющие вопросы, слышит перебивание и уступает слово. Полный путь показали живьём: реальный звонок по SIP, распознавание речи, диалог на модели, затем сделка и задача по звонку в Bitrix24. Холодный старт довели с примерно 70 секунд до 0,3 секунды на горячем инстансе. LiveKit Claude SIP Bitrix24 API Python голосовой робот входящие звонки ivr телефония sip голосовой ассистент робот отвечает на звонки автоответчик call-центр bitrix24 b24 голос звонок asterisk входящие звонки голосовой робот SIP Bitrix24 лиды"},{"id":"autoservice-ai-assistant","title":"ИИ-ассистент автосервиса: запись клиентов, календарь, ответы на вопросы","category":"ai","category_label":"AI-агенты, боты и голос","subcategory":"Запись клиентов и сервисные ассистенты","client_public":"автосервис","pitch_short":"Бот-ассистент автосервиса: сам записывает клиента, ведёт календарь занятости и отвечает на вопросы по услугам.","pitch_full":"Пакет из четырёх модулей на своём сервере: канал в мессенджере, календарь записи, ИИ-ответы на вопросы клиентов и периодические напоминания. Живёт в докере на выделенном сервере, работает у клиента постоянно, клиент платящий и продлевает сервер на год.","result_facts":["4 модуля: мессенджер, календарь, ИИ-ответы, напоминания","работает в проде на выделенном сервере","оплачен пакет плюс сервер на год"],"stack":["Python","Telegram Bot API","MAX","GPT","Docker","VPS"],"keywords":["бот автосервис","запись клиентов","календарь","ассистент","max","телеграм-бот","приём заявок","автоматизация записи","напоминания клиентам","telegram","автосервис","сто","мессенджер"],"evidence_wording":"Работа завершена, результат принят клиентом.","featured_public":true,"page_path":"case-autoservice-ai-assistant.html","search_text":"ИИ-ассистент автосервиса: запись клиентов, календарь, ответы на вопросы AI-агенты, боты и голос Запись клиентов и сервисные ассистенты автосервис Бот-ассистент автосервиса: сам записывает клиента, ведёт календарь занятости и отвечает на вопросы по услугам. Пакет из четырёх модулей на своём сервере: канал в мессенджере, календарь записи, ИИ-ответы на вопросы клиентов и периодические напоминания. Живёт в докере на выделенном сервере, работает у клиента постоянно, клиент платящий и продлевает сервер на год. Python Telegram Bot API MAX GPT Docker VPS бот автосервис запись клиентов календарь ассистент max телеграм-бот приём заявок автоматизация записи напоминания клиентам telegram автосервис сто мессенджер запись клиентов Telegram-бот календарь автосервис напоминания"},{"id":"medtech-landing-next","title":"Лендинг медтех-производителя на Next.js","category":"web","category_label":"Сайты, лендинги и e-commerce","subcategory":"Современные продуктовые лендинги","client_public":"медтех-стартап: имплантаты и ПО планирования операций","pitch_short":"Одностраничник медтех-производителя на актуальном Next.js: секции, карусель, анимации, форма заявки, деплой на Vercel.","pitch_full":"Клиент пришёл с сайтом на конструкторе и попросил показать подход на нормальном стеке. Собрали многосекционный адаптивный лендинг про индивидуальные челюстно-лицевые имплантаты и софт для планирования операций: карусель, плавные анимации, реальная продуктовая съёмка, форма захвата заявки. Стек свежий, деплой на Vercel.","result_facts":["Next.js 16 и React 19, адаптив","живой деплой на Vercel","пилот сдан как оценка подхода, дальше обсуждали полный сайт"],"stack":["Next.js 16","React 19","TypeScript","Tailwind","Embla","Vercel"],"keywords":["лендинг","next.js","react","медицина","медтех","одностраничник","адаптив","vercel","форма заявки","современный стек","переехать с тильды","nextjs","реакт","лендинг под ключ"],"evidence_wording":"Работа завершена, результат принят клиентом.","featured_public":true,"page_path":"case-medtech-landing-next.html","search_text":"Лендинг медтех-производителя на Next.js Сайты, лендинги и e-commerce Современные продуктовые лендинги медтех-стартап: имплантаты и ПО планирования операций Одностраничник медтех-производителя на актуальном Next.js: секции, карусель, анимации, форма заявки, деплой на Vercel. Клиент пришёл с сайтом на конструкторе и попросил показать подход на нормальном стеке. Собрали многосекционный адаптивный лендинг про индивидуальные челюстно-лицевые имплантаты и софт для планирования операций: карусель, плавные анимации, реальная продуктовая съёмка, форма захвата заявки. Стек свежий, деплой на Vercel. Next.js 16 React 19 TypeScript Tailwind Embla Vercel лендинг next.js react медицина медтех одностраничник адаптив vercel форма заявки современный стек переехать с тильды nextjs реакт лендинг под ключ Next.js React лендинг медтех Vercel"},{"id":"lalago-marketplace","title":"Маркетплейс с партнёрской программой и деревом рефералов","category":"platform","category_label":"SaaS, платформы и инфраструктура","subcategory":"Маркетплейсы и партнёрские программы","client_public":"предприниматель из Кыргызстана","pitch_short":"Маркетплейс в модели Temu плюс партнёрская программа: дерево рефералов, платные подписки, автоначисления и админка владельца.","pitch_full":"Одна кодовая база на витрину, кабинеты и админку. Деньги ходят через баланс платформы: покупатель видит одну цену, комиссия платформы удерживается после продажи из наценки продавца, выплата продавцу считается автоматически. Партнёрская часть это рекурсивное дерево рефералов с подписками и начислениями, денежные операции в транзакциях PostgreSQL. Мобильный доступ через устанавливаемое PWA. Витрина, админка, кабинет продавца и личный кабинет проверены снаружи, адаптив снят на планшете и мобильном, переключение языка работает.","result_facts":["витрина, админка, кабинет продавца и ЛК, вход по коду","денежная модель: комиссия из наценки, автовыплата продавцу","адаптив проверен на 768 и 390"],"stack":["Next.js 15","TypeScript","PostgreSQL","Prisma","Tailwind","shadcn/ui","PWA"],"keywords":["маркетплейс","temu","млм","рефералы","партнёрская программа","подписки","кабинет продавца","интернет-магазин","баланс","комиссия","выплаты","дерево партнёров","nextjs","next.js","маркетплейс под ключ","postgres"],"evidence_wording":"Ядро собрано и показано живьём на стенде, постоянный хостинг и домен были за клиентом.","featured_public":true,"page_path":"case-lalago-marketplace.html","search_text":"Маркетплейс с партнёрской программой и деревом рефералов SaaS, платформы и инфраструктура Маркетплейсы и партнёрские программы предприниматель из Кыргызстана Маркетплейс в модели Temu плюс партнёрская программа: дерево рефералов, платные подписки, автоначисления и админка владельца. Одна кодовая база на витрину, кабинеты и админку. Деньги ходят через баланс платформы: покупатель видит одну цену, комиссия платформы удерживается после продажи из наценки продавца, выплата продавцу считается автоматически. Партнёрская часть это рекурсивное дерево рефералов с подписками и начислениями, денежные операции в транзакциях PostgreSQL. Мобильный доступ через устанавливаемое PWA. Витрина, админка, кабинет продавца и личный кабинет проверены снаружи, адаптив снят на планшете и мобильном, переключение языка работает. Next.js 15 TypeScript PostgreSQL Prisma Tailwind shadcn/ui PWA маркетплейс temu млм рефералы партнёрская программа подписки кабинет продавца интернет-магазин баланс комиссия выплаты дерево партнёров nextjs next.js маркетплейс под ключ postgres маркетплейс рефералы подписки PWA личный кабинет"},{"id":"hostel-booking-ozon-pay","title":"Сайт хостела на 3 филиала: бронь номеров и онлайн-оплата","category":"integrations","category_label":"CRM, ERP, маркетплейсы и платежи","subcategory":"Бронирование и онлайн-оплата","client_public":"сеть хостелов в Санкт-Петербурге","pitch_short":"Сайт для трёх филиалов: гость выбирает даты, видит рассчитанную сумму и оформляет заявку; в админке — список брони и календарь занятости на 112 номеров.","pitch_full":"У каждого филиала своя страница и отдельная маршрутизация писем и заявок. Гость выбирает филиал и даты, сумма считается на лету и перепроверяется сервером, затем формируется письмо со ссылкой на оплату. Логика статуса брони и занятости номера проверена в тестовом контуре эквайринга. В админке есть список заявок со статусами и календарь занятости 112 номеров. Вебхуки протестированы на пустом теле, чужом заказе и неверной подписи; 24 из 24 проверок зелёные.","result_facts":["3 филиала со своей маршрутизацией заявок","календарь занятости 112 номеров","24/24 проверки, включая тестовые сценарии платёжных вебхуков"],"stack":["WordPress","PHP","Ozon Эквайринг","JS","MySQL"],"keywords":["хостел","гостиница","бронирование","бронь","оплата на сайте","эквайринг","wordpress","календарь занятости","отель","приём платежей","несколько филиалов","озон","ozon","озон эквайринг","онлайн-оплата"],"evidence_wording":"Работа завершена, результат принят клиентом.","featured_public":true,"page_path":"case-hostel-booking-ozon-pay.html","search_text":"Сайт хостела на 3 филиала: бронь номеров и онлайн-оплата CRM, ERP, маркетплейсы и платежи Бронирование и онлайн-оплата сеть хостелов в Санкт-Петербурге Сайт для трёх филиалов: гость выбирает даты, видит рассчитанную сумму и оформляет заявку; в админке — список брони и календарь занятости на 112 номеров. У каждого филиала своя страница и отдельная маршрутизация писем и заявок. Гость выбирает филиал и даты, сумма считается на лету и перепроверяется сервером, затем формируется письмо со ссылкой на оплату. Логика статуса брони и занятости номера проверена в тестовом контуре эквайринга. В админке есть список заявок со статусами и календарь занятости 112 номеров. Вебхуки протестированы на пустом теле, чужом заказе и неверной подписи; 24 из 24 проверок зелёные. WordPress PHP Ozon Эквайринг JS MySQL хостел гостиница бронирование бронь оплата на сайте эквайринг wordpress календарь занятости отель приём платежей несколько филиалов озон ozon озон эквайринг онлайн-оплата бронирование гостиница эквайринг WordPress календарь занятости"},{"id":"call-scorer-b24","title":"AI-оценка качества звонков менеджеров в Bitrix24","category":"ai","category_label":"AI-агенты, боты и голос","subcategory":"Речевая аналитика и контроль качества","client_public":"оптовая компания с отделом продаж","pitch_short":"Сервис сам слушает звонки менеджеров, оценивает их по чек-листу и пишет оценку в карточку сделки Bitrix24.","pitch_full":"На каждое обновление сделки сервис забирает запись звонка из телефонии Bitrix24, расшифровывает её локально на русском и прогоняет по двум чек-листам качества, 55 критериев в сумме. По каждому пункту модель даёт зачёт или незачёт с комментарием, плюс общий процент. Результат уходит обратно в карточку сделки и в две Google-таблицы, не задевая формулы клиента. Задеплоено и проверено на живых сделках.","result_facts":["два чек-листа 32 + 23 = 55 критериев","запись берётся из телефонии B24 или транскрипт из Google Drive","оценка пишется в сделку и в 2 Google-таблицы"],"stack":["Python","FastAPI","faster-whisper","GPT-4o","Bitrix24 API","Google Sheets API"],"keywords":["звонки","контроль качества","чек-лист","битрикс24","транскрибация","whisper","оценка менеджеров","телефония","речевая аналитика","отдел продаж","bitrix24","b24","гпт","gpt","аудио"],"evidence_wording":"Работа завершена, результат принят клиентом.","featured_public":true,"page_path":"case-call-scorer-b24.html","search_text":"AI-оценка качества звонков менеджеров в Bitrix24 AI-агенты, боты и голос Речевая аналитика и контроль качества оптовая компания с отделом продаж Сервис сам слушает звонки менеджеров, оценивает их по чек-листу и пишет оценку в карточку сделки Bitrix24. На каждое обновление сделки сервис забирает запись звонка из телефонии Bitrix24, расшифровывает её локально на русском и прогоняет по двум чек-листам качества, 55 критериев в сумме. По каждому пункту модель даёт зачёт или незачёт с комментарием, плюс общий процент. Результат уходит обратно в карточку сделки и в две Google-таблицы, не задевая формулы клиента. Задеплоено и проверено на живых сделках. Python FastAPI faster-whisper GPT-4o Bitrix24 API Google Sheets API звонки контроль качества чек-лист битрикс24 транскрибация whisper оценка менеджеров телефония речевая аналитика отдел продаж bitrix24 b24 гпт gpt аудио звонки контроль качества Bitrix24 транскрибация отдел продаж"},{"id":"repubox-saas","title":"SaaS-платформа AI-ответов на отзывы для локального бизнеса","category":"platform","category_label":"SaaS, платформы и инфраструктура","subcategory":"AI SaaS для репутации","client_public":"продуктовая команда со своим SaaS","pitch_short":"Мультитенантная платформа: генерирует ответы на отзывы под нишу бизнеса и в один клик публикует их там, где есть официальное API.","pitch_full":"Владелец подключает свои источники отзывов и получает ответы из двухступенчатого пайплайна: сначала разбор отзыва, потом ответ с учётом отрасли, будь то ресторан, клиника, отель или кафе. Подключено восемь площадок отзывов, на двух из них публикация действительно в один клик по официальному API. Есть роли владельца и админа, биллинг и размещение на сервере клиента. Работает в проде, ядро принято.","result_facts":["8 подключённых площадок отзывов","автопубликация по официальному API на 2 из них","роли, биллинг, прод на сервере клиента"],"stack":["FastAPI","Vue.js","PostgreSQL","LLM","Avito API","Google Business Profile API","Docker"],"keywords":["saas","отзывы","репутация","автоответы","яндекс карты","2гис","авито","мультитенант","биллинг","платформа","личный кабинет","подписка","2gis","yandex","отзывы клиентов","saas платформа"],"evidence_wording":"Работа завершена, результат принят клиентом.","featured_public":true,"page_path":"case-repubox-saas.html","search_text":"SaaS-платформа AI-ответов на отзывы для локального бизнеса SaaS, платформы и инфраструктура AI SaaS для репутации продуктовая команда со своим SaaS Мультитенантная платформа: генерирует ответы на отзывы под нишу бизнеса и в один клик публикует их там, где есть официальное API. Владелец подключает свои источники отзывов и получает ответы из двухступенчатого пайплайна: сначала разбор отзыва, потом ответ с учётом отрасли, будь то ресторан, клиника, отель или кафе. Подключено восемь площадок отзывов, на двух из них публикация действительно в один клик по официальному API. Есть роли владельца и админа, биллинг и размещение на сервере клиента. Работает в проде, ядро принято. FastAPI Vue.js PostgreSQL LLM Avito API Google Business Profile API Docker saas отзывы репутация автоответы яндекс карты 2гис авито мультитенант биллинг платформа личный кабинет подписка 2gis yandex отзывы клиентов saas платформа SaaS отзывы репутация мультитенантность LLM"}]};</script>
+<script>
+(function () {
+  "use strict";
+
+  var searchInput = document.getElementById("caseSearch");
+  var filtersRoot = document.getElementById("categoryFilters");
+  var grid = document.getElementById("caseGrid");
+  var empty = document.getElementById("emptyState");
+  var resultCount = document.getElementById("resultCount");
+  var state = { query: "", category: "all" };
+
+  function normalize(value) {
+    return String(value || "")
+      .toLocaleLowerCase("ru")
+      .replace(/ё/g, "е")
+      .replace(/вордпресс/g, "wordpress")
+      .replace(/битрикс24/g, "bitrix24")
+      .replace(/битрикс/g, "bitrix")
+      .replace(/озон/g, "ozon")
+      .replace(/телеграм/g, "telegram")
+      .replace(/амосрм/g, "amocrm")
+      .replace(/вайлдберриз/g, "wildberries")
+      .replace(/тильда/g, "tilda")
+      .replace(/1с/g, "1c")
+      .trim();
+  }
+
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, function (char) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[char];
+    });
+  }
+
+  function renderCard(item) {
+    var classes = item.featured_public ? "case-card featured" : "case-card";
+    var tags = item.stack
+      .slice(0, 5)
+      .map(function (tag) {
+        return "<li>" + escapeHtml(tag) + "</li>";
+      })
+      .join("");
+    return (
+      '<article class="' +
+      classes +
+      '">' +
+      "<div>" +
+      '<p class="card-category">' +
+      escapeHtml(item.category_label) +
+      " · " +
+      escapeHtml(item.subcategory) +
+      "</p>" +
+      "<h3>" +
+      escapeHtml(item.title) +
+      "</h3>" +
+      "</div>" +
+      "<p>" +
+      escapeHtml(item.pitch_short) +
+      "</p>" +
+      '<ul class="mini-tags" aria-label="Стек">' +
+      tags +
+      "</ul>" +
+      '<a href="' +
+      escapeHtml(item.page_path) +
+      '">Открыть кейс</a>' +
+      "</article>"
+    );
+  }
+
+  function renderFilters(data) {
+    var buttons = [{ id: "all", label: "Все" }].concat(
+      Object.keys(data.categories).map(function (id) {
+        return { id: id, label: data.categories[id].short_label };
+      })
+    );
+    filtersRoot.innerHTML = buttons
+      .map(function (button) {
+        return (
+          '<button class="filter-button" type="button" data-category="' +
+          escapeHtml(button.id) +
+          '" aria-pressed="' +
+          (button.id === "all" ? "true" : "false") +
+          '">' +
+          escapeHtml(button.label) +
+          "</button>"
+        );
+      })
+      .join("");
+  }
+
+  function render(data) {
+    var query = normalize(state.query);
+    var visible = data.cases.filter(function (item) {
+      var categoryMatches =
+        state.category === "all" || item.category === state.category;
+      var queryMatches = !query || normalize(item.search_text).includes(query);
+      return categoryMatches && queryMatches;
+    });
+
+    grid.innerHTML = visible.map(renderCard).join("");
+    empty.hidden = visible.length !== 0;
+    resultCount.textContent =
+      visible.length + " из " + data.cases.length + " " + pluralize(visible.length);
+  }
+
+  function pluralize(count) {
+    var mod10 = count % 10;
+    var mod100 = count % 100;
+    if (mod10 === 1 && mod100 !== 11) return "кейс";
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "кейса";
+    return "кейсов";
+  }
+
+  Promise.resolve(window.__CASE_DATA__)
+    .then(function (data) {
+      renderFilters(data);
+      render(data);
+
+      searchInput.addEventListener("input", function (event) {
+        state.query = event.target.value;
+        render(data);
+      });
+
+      filtersRoot.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-category]");
+        if (!button) return;
+        state.category = button.getAttribute("data-category");
+        filtersRoot.querySelectorAll("[data-category]").forEach(function (item) {
+          item.setAttribute(
+            "aria-pressed",
+            String(item.getAttribute("data-category") === state.category)
+          );
+        });
+        render(data);
+      });
+    })
+    .catch(function () {
+      resultCount.textContent = "Каталог не загрузился";
+      empty.hidden = false;
+      empty.textContent =
+        "Откройте страницу через GitHub Pages или локальный веб-сервер.";
+    });
+})();
+
+</script>
+  </body>
+</html>
