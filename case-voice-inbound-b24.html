@@ -125,7 +125,11 @@ input {
 }
 
 .catalog-hero {
-  padding-block: clamp(4rem, 11vw, 8.5rem) clamp(3.5rem, 8vw, 6rem);
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(280px, 5fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-block: clamp(3rem, 7vw, 5.5rem);
 }
 
 .catalog-hero h1,
@@ -140,7 +144,9 @@ input {
 }
 
 .catalog-hero h1 {
-  font-size: clamp(3rem, 7.7vw, 6.7rem);
+  max-width: 780px;
+  font-size: clamp(2.65rem, 5vw, 4.7rem);
+  line-height: 1.02;
 }
 
 .catalog-lead,
@@ -169,6 +175,58 @@ input {
 
 .catalog-stats strong {
   color: var(--ink);
+}
+
+.portfolio-evidence {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border-radius: 1.25rem;
+  background: var(--teal);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.portfolio-evidence .section-kicker,
+.hero-results .section-kicker {
+  color: var(--cream);
+}
+
+.portfolio-evidence h2,
+.hero-results h2 {
+  margin: 0.45rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.evidence-metrics {
+  display: grid;
+  gap: 0;
+  margin: 1.5rem 0 0;
+}
+
+.evidence-metrics div {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding-block: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.evidence-metrics dd {
+  margin: 0;
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.evidence-metrics dt {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.35;
 }
 
 .catalog-shell {
@@ -354,11 +412,50 @@ input {
 }
 
 .case-hero {
-  padding-block: clamp(4rem, 10vw, 8rem);
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.case-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(300px, 5fr);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 5rem);
 }
 
 .case-hero h1 {
-  font-size: clamp(3rem, 8vw, 7.3rem);
+  max-width: 760px;
+  font-size: clamp(2.55rem, 5.2vw, 4.65rem);
+  line-height: 1.01;
+}
+
+.hero-results {
+  padding: clamp(1.4rem, 3vw, 2.1rem);
+  border-radius: 1.2rem;
+  background: var(--teal);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.hero-fact-list {
+  display: grid;
+  gap: 0;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-fact-list li {
+  padding: 0.85rem 0 0.85rem 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  position: relative;
+}
+
+.hero-fact-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--cream);
+  font-weight: 900;
 }
 
 .case-meta {
@@ -410,44 +507,10 @@ input {
   background: var(--card);
 }
 
-.facts-panel {
-  grid-column: span 5;
-  background: var(--teal);
-  color: white;
-}
-
-.facts-panel .section-kicker {
-  color: var(--cream);
-}
-
-.facts-panel h2 {
-  color: white;
-}
-
 .story-copy {
   margin: 1.4rem 0 0;
   color: var(--muted);
   font-size: 1.08rem;
-}
-
-.fact-list {
-  display: grid;
-  gap: 1rem;
-  margin: 1.5rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.fact-list li {
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.fact-list li::before {
-  content: "✓";
-  margin-right: 0.55rem;
-  color: var(--cream);
-  font-weight: 900;
 }
 
 .stack-panel {
@@ -460,7 +523,7 @@ input {
 }
 
 .cta-panel {
-  grid-column: span 7;
+  grid-column: 1 / -1;
   background: var(--cream);
 }
 
@@ -517,10 +580,15 @@ input {
     flex-direction: column;
   }
 
+  .catalog-hero,
+  .case-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
   .case-card,
   .case-card.featured,
   .story-panel,
-  .facts-panel,
   .stack-panel,
   .cta-panel {
     grid-column: 1 / -1;
@@ -528,6 +596,20 @@ input {
 
   .case-meta {
     grid-template-columns: 1fr;
+  }
+
+  .catalog-hero,
+  .case-hero {
+    padding-block: 2.6rem 3.4rem;
+  }
+
+  .catalog-hero h1,
+  .case-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 3.05rem);
+  }
+
+  .catalog-stats {
+    display: none;
   }
 
   .catalog-controls {
@@ -557,9 +639,23 @@ input {
     <main id="main">
       <article class="case-page">
         <header class="case-hero shell">
-          <p class="eyebrow">AI-агенты, боты и голос · Голосовые AI-агенты</p>
-          <h1>Голосовой AI-робот на входящие звонки с заведением лида в CRM</h1>
-          <p class="case-lead">Робот принимает входящий звонок, разговаривает голосом по-русски своими словами и сам создаёт лид в CRM.</p>
+          <div class="case-hero-grid">
+            <div class="case-hero-copy">
+              <p class="eyebrow">AI-агенты, боты и голос · Голосовые AI-агенты</p>
+              <h1>Голосовой AI-робот на входящие звонки с заведением лида в CRM</h1>
+              <p class="case-lead">Робот принимает входящий звонок, разговаривает голосом по-русски своими словами и сам создаёт лид в CRM.</p>
+            </div>
+
+            <section class="hero-results" aria-labelledby="hero-results-title">
+              <p class="section-kicker">Подтверждено</p>
+              <h2 id="hero-results-title">Результат в фактах</h2>
+              <ul class="hero-fact-list">
+                <li>живой сквозной прогон: звонок → диалог → сделка в B24</li>
+              <li>задержка холодного старта ~70с → ~0,3с горячий</li>
+              <li>перебивание работает</li>
+              </ul>
+            </section>
+          </div>
           <dl class="case-meta">
             <div>
               <dt>Для кого</dt>
@@ -577,16 +673,6 @@ input {
             <p class="section-kicker">Решение</p>
             <h2 id="solution-title">Что было сделано</h2>
             <p class="story-copy">Не меню с кнопками, а живой диалог: робот задаёт свои уточняющие вопросы, слышит перебивание и уступает слово. Полный путь показали живьём: реальный звонок по SIP, распознавание речи, диалог на модели, затем сделка и задача по звонку в Bitrix24. Холодный старт довели с примерно 70 секунд до 0,3 секунды на горячем инстансе.</p>
-          </section>
-
-          <section class="facts-panel" aria-labelledby="facts-title">
-            <p class="section-kicker">Подтверждено</p>
-            <h2 id="facts-title">Результат в фактах</h2>
-            <ul class="fact-list">
-              <li>живой сквозной прогон: звонок → диалог → сделка в B24</li>
-              <li>задержка холодного старта ~70с → ~0,3с горячий</li>
-              <li>перебивание работает</li>
-            </ul>
           </section>
 
           <section class="stack-panel" aria-labelledby="stack-title">
@@ -617,7 +703,7 @@ input {
 
     <footer class="site-footer shell">
       <p>Кейсы обезличены. Детальные пруфы предоставляются по прямому запросу.</p>
-      <p>Обновлено: 29 июля 2026 г.</p>
+      <p>Обновлено: 1 августа 2026 г.</p>
     </footer>
   </body>
 </html>
